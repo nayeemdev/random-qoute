@@ -1,24 +1,31 @@
 import React, { Component } from "react";
 import Quote from "./components/QuoteComponent";
+import quotes from './DB/QuoteDB';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      quote: 'Life is movement-we breathe, we eat, we walk, we move!',
-      author: 'John Pierrakos',
+      quote: quotes[0].quote,
+      author: quotes[0].author,
     };
   }
   randomQuote() {
-    //TODO: 
+    const randomNumber = Math.floor(Math.random() * quotes.length);
+    return quotes[randomNumber];
+    
   }
-
   shuffleQuotes(array){
-    //TODO: 
+    return array.sort(()=>Math.random()-0.5)
   }
 
   handleClick = () => {
-    //TODO: 
+    const generateRandomQuote = this.randomQuote();
+    this.setState({
+      quote: generateRandomQuote.quote,
+      author: generateRandomQuote.author
+    });
+    this.shuffleQuotes(quotes)
   };
 
   randomColor() {
