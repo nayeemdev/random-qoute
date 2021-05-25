@@ -9,6 +9,10 @@ html {
 #root {
     width: 80%;
     margin: 0 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 .quotebox {
